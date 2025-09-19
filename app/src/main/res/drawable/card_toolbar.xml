@@ -1,0 +1,24 @@
+<!-- drawable/spreadsheet.xml -->
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="300dp"
+    android:height="72dp"
+    android:viewportWidth="300"
+    android:viewportHeight="72"
+    >
+    <group>
+        <clip-path
+            android:pathData="M5 0H313C315.761 0 318 2.23858 318 5V165C318 167.761 315.761 170 313 170H5C2.23858 170 0 167.761 0 165V5C0 2.23858 2.23858 0 5 0Z"
+            />
+        <path
+            android:pathData="M0 0V170H318V0"
+            android:fillColor="#ECEEFF"
+            />
+        <path
+            android:pathData="M5 0H313C315.761 0 318 2.23858 318 5V165C318 167.761 315.761 170 313 170H5C2.23858 170 0 167.761 0 165V5C0 2.23858 2.23858 0 5 0Z"
+            android:strokeWidth="4"
+            android:strokeColor="#E6E8EB"
+            />
+    </group>
+</vector>
