@@ -1,12 +1,12 @@
 <resources>
-    <resources>
-        <string name="app_name">Scaneia</string>
-
-        <string name="title_dashboard">Dashboard</string>
-        <string name="title_list_funcionarios">Funcionários</string>
-        <string name="title_planilhas">Planilhas</string>
-        <string name="title_perfil">Perfil</string>
-        <string name="title_solicitacoes">Solicitações</string>
-    </resources>
-
+    <string name="app_name">scaneia</string>
+    <string name="title_planilhas">Planilhas</string>
+    <string name="title_dashboards">Dashboards</string>
+    <string name="title_colaboradores">Colaboradores</string>
+    <string name="planilha"><b>Planilha</b></string>
+    <string name="fornecedor">Fornecedor</string>
+    <string name="planilhas"><b>Planilhas</b></string>
+    <string name="diretoria"><b>Diretoria</b></string>
+    <string name="acessos"><b>Acessos</b></string>
+    <string name="dashboards"><b>Dashboards</b></string>
 </resources>

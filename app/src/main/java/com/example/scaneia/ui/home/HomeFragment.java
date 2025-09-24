@@ -1,4 +1,4 @@
-package com.example.scaneia.ui.dashboard;
+package com.example.scaneia.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,26 +12,26 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.scaneia.AdapterFuncionarios;
 import com.example.scaneia.AdapterPlanilha;
-import com.example.scaneia.databinding.FragmentDashboardBinding;
+import com.example.scaneia.R;
+import com.example.scaneia.databinding.FragmentHomeBinding;
 
-public class DashboardFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
 
         RecyclerView recyclerView = binding.rv;
-        AdapterFuncionarios adapter = new AdapterFuncionarios(5);
+        AdapterPlanilha adapter = new AdapterPlanilha(5);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext())); // contexto correto
         recyclerView.setAdapter(adapter);
 
-        return binding.getRoot();
-
+        return root;
     }
 
     @Override

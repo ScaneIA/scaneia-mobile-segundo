@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/pessoascheia"
-        android:title="Planilhas" />
+        android:icon="@drawable/pastacheia"
+        android:title="@string/title_planilhas" />
 
     <item
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/dashboardcheio"
-        android:title="Solicitações" />
+        android:title="@string/title_dashboards" />
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/pastacheia"
-        android:title="Funcionários" />
+        android:icon="@drawable/pessoascheia"
+        android:title="@string/title_colaboradores" />
 
 </menu>

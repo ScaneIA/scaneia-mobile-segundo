@@ -1,0 +1,210 @@
+<!-- Auto layout, grids, variables, and unit scale are not yet supported -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/spreadsheet"
+    android:layout_width="318dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/card_planilha">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="181dp"
+        android:fontFamily="@font/monda"
+        android:text="@string/planilha"
+        android:textColor="#343565"
+        android:textSize="18dp" />
+
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/materialDivider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        app:dividerColor="#EFF1FF"
+        app:dividerThickness="4.5dp"
+        tools:ignore="MissingClass" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="106dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/materialDivider"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
+        android:layout_toStartOf="@+id/textView10"
+        android:layout_toEndOf="@+id/textView7"
+        android:fontFamily="@font/monda"
+        android:text="Embalagem"
+        android:textColor="#2F5BB3"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/materialDivider"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/monda"
+        android:text="Setor:"
+        android:textColor="#5F6570"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/monda"
+        android:text="Colunas:"
+        android:textColor="#5F6570"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/materialDivider"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_toStartOf="@+id/textView11"
+        android:fontFamily="@font/monda"
+        android:text="Registros:"
+        android:textColor="#5F6570"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/materialDivider"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="23dp"
+        android:fontFamily="@font/monda"
+        android:text="500"
+        android:textColor="#2F5BB3"
+        android:textSize="16dp" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="269dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="23dp"
+        app:chipSpacingHorizontal="5dp"
+        app:chipSpacingVertical="-12dp"
+        app:singleLine="false"
+        tools:ignore="MissingClass">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip1"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_margin="0dp"
+            android:fontFamily="@font/monda"
+            android:text="@string/fornecedor"
+            android:textColor="#343565"
+            android:textSize="12.5sp"
+            app:chipBackgroundColor="#FAFCFF"
+            app:chipCornerRadius="4dp"
+            app:chipStrokeColor="#EFF1FF"
+            app:chipStrokeWidth="2dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip2"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_margin="0dp"
+            android:fontFamily="@font/monda"
+            android:text="Produto"
+            android:textColor="#343565"
+            android:textSize="12.5sp"
+            app:chipBackgroundColor="#FAFCFF"
+            app:chipCornerRadius="4dp"
+            app:chipStrokeColor="#EFF1FF"
+            app:chipStrokeWidth="2dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip3"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_margin="0dp"
+            android:fontFamily="@font/monda"
+            android:text="Qtd. Recibo"
+            android:textColor="#343565"
+            android:textSize="12.5sp"
+            app:chipBackgroundColor="#FAFCFF"
+            app:chipCornerRadius="4dp"
+            app:chipStrokeColor="#EFF1FF"
+            app:chipStrokeWidth="2dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip4"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_margin="0dp"
+            android:fontFamily="@font/monda"
+            android:text="Hora"
+            android:textColor="#343565"
+            android:textSize="12.5sp"
+            app:chipBackgroundColor="#FAFCFF"
+            app:chipCornerRadius="4dp"
+            app:chipStrokeColor="#EFF1FF"
+            app:chipStrokeWidth="2dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip5"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_margin="0dp"
+            android:fontFamily="@font/monda"
+            android:text="Código"
+            android:textColor="#343565"
+            android:textSize="12.5sp"
+            app:chipBackgroundColor="#FAFCFF"
+            app:chipCornerRadius="4dp"
+            app:chipStrokeColor="#EFF1FF"
+            app:chipStrokeWidth="2dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip6"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_margin="0dp"
+            android:fontFamily="@font/monda"
+            android:text="Lote completo?"
+            android:textColor="#343565"
+            android:textSize="12.5sp"
+            app:chipBackgroundColor="#FAFCFF"
+            app:chipCornerRadius="4dp"
+            app:chipStrokeColor="#EFF1FF"
+            app:chipStrokeWidth="2dp" />
+
+        <!-- repita para os outros chips -->
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+
+</RelativeLayout>

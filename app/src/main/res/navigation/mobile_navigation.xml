@@ -3,36 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_dashboard">
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.scaneia.ui.home.HomeFragment"
+        android:label="@string/title_planilhas"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.scaneia.ui.dashboard.DashboardFragment"
-        android:label="Dashboard"
+        android:label="@string/title_dashboards"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_list_funcionarios"
-        android:name="com.example.scaneia.ui.listfuncionarios.ListFuncionariosFragment"
-        android:label="Funcionários"
-        tools:layout="@layout/fragment_list_funcionarios" />
-
-    <fragment
-        android:id="@+id/navigation_planilhas"
-        android:name="com.example.scaneia.ui.planilhas.PlanilhaFragment"
-        android:label="Planilhas"
-        tools:layout="@layout/fragment_planilha" />
-
-    <fragment
-        android:id="@+id/navigation_perfil"
-        android:name="com.example.scaneia.ui.perfil.ProfileFragment"
-        android:label="Perfil"
-        tools:layout="@layout/fragment_perfil" />
-
-    <fragment
-        android:id="@+id/navigation_solicitacoes"
-        android:name="com.example.scaneia.ui.solicitacoes.SolicitacoesFragment"
-        android:label="Solicitações"
-        tools:layout="@layout/fragment_solicitacoes" />
-
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.scaneia.ui.notifications.NotificationsFragment"
+        android:label="@string/title_colaboradores"
+        tools:layout="@layout/fragment_notifications" />
 </navigation>
