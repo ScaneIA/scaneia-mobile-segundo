@@ -9,4 +9,7 @@
     <string name="diretoria"><b>Diretoria</b></string>
     <string name="acessos"><b>Acessos</b></string>
     <string name="dashboards"><b>Dashboards</b></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="solicitacoes"><b>Solicitações</b></string>
 </resources>

@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Scaneia"
         tools:targetApi="31">
         <activity
+            android:name=".telinhaTesteLogin"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
             android:name=".SplashScrenn"
             android:exported="false" />
         <activity
