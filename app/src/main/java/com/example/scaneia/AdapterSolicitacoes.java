@@ -8,26 +8,26 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AdapterFuncionarios extends RecyclerView.Adapter<AdapterFuncionarios.ViewHolder>{
+public class AdapterSolicitacoes extends RecyclerView.Adapter<AdapterSolicitacoes.ViewHolder>{
+
     private int quantidade;
 
-    public AdapterFuncionarios(int quantidade){
+    public AdapterSolicitacoes(int quantidade){
         this.quantidade = quantidade;
     }
 
     @NonNull
     @Override
-    public AdapterFuncionarios.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdapterSolicitacoes.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_funcionarios, parent, false);
-        return new AdapterFuncionarios.ViewHolder(view);
+                .inflate(R.layout.card_solicitacoes, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdapterSolicitacoes.ViewHolder holder, int position) {
 
     }
-
 
     @Override
     public int getItemCount() {
