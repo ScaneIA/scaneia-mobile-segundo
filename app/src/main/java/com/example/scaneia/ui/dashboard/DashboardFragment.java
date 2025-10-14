@@ -27,7 +27,6 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
 
         RecyclerView recyclerView = binding.rv;
