@@ -34,7 +34,7 @@ public class AdapterPlanilha extends RecyclerView.Adapter<AdapterPlanilha.ViewHo
         return quantidade;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textPlaca, textEntrada, textSaida;
         ConstraintLayout fundo;
 

@@ -17,7 +17,7 @@
         android:text="@string/planilhas"
         android:textColor="#343565"
         android:textSize="28dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/profile"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
@@ -34,7 +34,7 @@
         tools:listitem="@layout/card_planilha" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/profile"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"

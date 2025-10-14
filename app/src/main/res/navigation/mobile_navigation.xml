@@ -22,4 +22,14 @@
         android:name="com.example.scaneia.ui.notifications.NotificationsFragment"
         android:label="@string/title_colaboradores"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/solicitacoesFragment"
+        android:name="com.example.scaneia.SolicitacoesFragment"
+        android:label="fragment_solicitacoes"
+        tools:layout="@layout/fragment_solicitacoes" />
+    <fragment
+        android:id="@+id/modelosFragment"
+        android:name="com.example.scaneia.ModelosFragment"
+        android:label="fragment_modelos"
+        tools:layout="@layout/fragment_modelos" />
 </navigation>
