@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/planilhasFragment"
+        android:icon="@drawable/pastacheia"
+        android:title="Planilhas" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/dashboardcheio"
+        android:id="@+id/funcionariosFragment"
+        android:icon="@drawable/pessoascheia"
         android:title="Funcionários" />
+
+    <item
+        android:id="@+id/analisesFragment"
+        android:icon="@drawable/dashboardcheio"
+        android:title="Dashboard" />
 
 </menu>

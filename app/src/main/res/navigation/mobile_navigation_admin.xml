@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/mobile_navigation_admin"
+    app:startDestination="@+id/planilhasFragment">
+
+    <fragment
+        android:id="@+id/planilhasFragment"
+        android:name="com.example.scaneia.planilhas.PlanilhaFragment"
+        android:label="@string/title_planilhas"
+        tools:layout="@layout/fragment_planilha" />
+
+    <fragment
+        android:id="@+id/solicitacoesFragment"
+        android:name="com.example.scaneia.solicitacoes.SolicitacoesFragment"
+        android:label="Solicitações"
+        tools:layout="@layout/fragment_solicitacoes" />
+
+    <fragment
+        android:id="@+id/analisesFragment"
+        android:name="com.example.scaneia.analises.AnalisesFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_analises" />
+
+    <fragment
+        android:id="@+id/funcionariosFragment"
+        android:name="com.example.scaneia.funcionarios.FuncionariosFragment"
+        android:label="Funcionários"
+        tools:layout="@layout/fragment_funcionarios" />
+
+</navigation>

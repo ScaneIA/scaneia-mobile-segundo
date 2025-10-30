@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/planilhasFragment"
         android:icon="@drawable/pastacheia"
         android:title="@string/title_planilhas" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/funcionariosFragment"
         android:icon="@drawable/pessoascheia"
         android:title="@string/title_colaboradores" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/analisesFragment"
         android:icon="@drawable/dashboardcheio"
         android:title="@string/title_dashboards" />
 

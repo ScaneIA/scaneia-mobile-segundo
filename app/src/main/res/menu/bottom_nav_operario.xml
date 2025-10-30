@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/planilhasFragment"
         android:icon="@drawable/pastacheia"
         android:title="Planilhas" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/dashboardcheio"
+        android:id="@+id/solicitacoesFragment"
+        android:icon="@drawable/sinocheio"
         android:title="Solicitações" />
 
 </menu>

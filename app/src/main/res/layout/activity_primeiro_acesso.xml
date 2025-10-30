@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".PrimeiroAcesso">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailInput"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView12">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/card_login"
@@ -32,6 +32,73 @@
             android:textColor="#5F6570"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/senhaInput"
+        android:layout_width="310dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="31dp"
+        app:boxBackgroundMode="filled"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintTextColor="#5F6570"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailInput">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_login"
+            android:fontFamily="@font/monda"
+            android:hint="Senha"
+            android:textColor="#5F6570"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/senhaConfirmacaoInput"
+        android:layout_width="310dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="31dp"
+        app:boxBackgroundMode="filled"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintTextColor="#5F6570"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/senhaInput">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/senhaConfirmacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_login"
+            android:fontFamily="@font/monda"
+            android:hint="Confirme sua senha"
+            android:textColor="#5F6570"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cadastrar"
+        android:layout_width="310dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/monda"
+        android:text="Cadastrar"
+        android:textSize="18dp"
+        app:backgroundTint="@color/blue_scany"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/senhaConfirmacaoInput" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -43,46 +110,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordInput"
-        android:layout_width="310dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="31dp"
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailInput"
-        app:boxBackgroundMode="filled"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        app:hintTextColor="#5F6570">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/card_login"
-            android:fontFamily="@font/monda"
-            android:hint="Password"
-            android:textColor="#5F6570"
-            android:textSize="18sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/sair"
-        android:layout_width="310dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/monda"
-        android:text="Login"
-        android:textSize="18dp"
-        app:backgroundTint="@color/blue_scany"
-        app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
-
+        app:layout_constraintTop_toBottomOf="@+id/cadastrar"
+        app:srcCompat="@drawable/quadradinho1" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -95,30 +131,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_principal" />
-
-    <TextView
-        android:id="@+id/cadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="67dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="78dp"
-        android:fontFamily="@font/monda"
-        android:text="Primeira vez aqui? O cadastro é simples"
-        android:textColor="#5F6570"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sair"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadastro"
-        app:srcCompat="@drawable/quadradinho1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
