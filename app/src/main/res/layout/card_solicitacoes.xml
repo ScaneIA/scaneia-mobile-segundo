@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
+    android:layout_marginBottom="15dp"
     android:padding="8dp">
 
     <!-- Texto de dias -->
@@ -30,10 +30,10 @@
         <!-- Ícone da pasta -->
         <ImageView
             android:id="@+id/imgFolder"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/pastacheia"
-            android:contentDescription="Ícone da pasta" />
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:contentDescription="Ícone da pasta"
+            android:src="@drawable/pastacheia" />
 
         <!-- Espaço -->
         <Space

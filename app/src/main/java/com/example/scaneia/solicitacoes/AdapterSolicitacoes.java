@@ -1,4 +1,4 @@
-package com.example.scaneia;
+package com.example.scaneia.solicitacoes;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,23 +8,26 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AdapterModelos extends RecyclerView.Adapter<AdapterModelos.ViewHolder>{
+import com.example.scaneia.R;
+
+public class AdapterSolicitacoes extends RecyclerView.Adapter<AdapterSolicitacoes.ViewHolder>{
+
     private int quantidade;
 
-    public AdapterModelos(int quantidade){
+    public AdapterSolicitacoes(int quantidade){
         this.quantidade = quantidade;
     }
 
     @NonNull
     @Override
-    public AdapterModelos.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdapterSolicitacoes.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.chip_modeloplanilha, parent, false);
-        return new AdapterModelos.ViewHolder(view);
+                .inflate(R.layout.card_solicitacoes, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdapterSolicitacoes.ViewHolder holder, int position) {
 
     }
 

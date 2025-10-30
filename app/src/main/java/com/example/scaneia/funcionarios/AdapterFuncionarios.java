@@ -1,4 +1,4 @@
-package com.example.scaneia;
+package com.example.scaneia.funcionarios;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.scaneia.R;
 
 public class AdapterFuncionarios extends RecyclerView.Adapter<AdapterFuncionarios.ViewHolder>{
     private int quantidade;
