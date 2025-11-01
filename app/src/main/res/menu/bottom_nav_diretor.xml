@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/dashboardcheio"
+        android:id="@+id/planilhasFragment"
+        android:icon="@drawable/pastacheia"
         android:title="Planilhas" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/pastacheia"
-        android:title="Funcionários" />
+        android:id="@+id/analisesFragment"
+        android:icon="@drawable/dashboardcheio"
+        android:title="Dashboard" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/funcionariosFragment"
         android:icon="@drawable/pessoascheia"
-        android:title="Dashboard" />
+        android:title="Funcionário" />
 
 </menu>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFCFF"
+    tools:context=".planilhas.PlanilhaFragment">
+
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-70dp"
+        android:src="@drawable/quadradinho2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/voltar"
+        android:layout_width="37dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/seta"
+        app:layout_constraintEnd_toStartOf="@+id/imageView15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="235dp"
+        android:layout_height="254dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/perfil_bolinha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView13"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/mensagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_light"
+        android:text="Olá, Usuário"
+        android:textColor="#4B6992"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+
+    <RelativeLayout
+        android:id="@+id/spreadsheet"
+        android:layout_width="336dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:width="336dp"
+        android:height="200dp"
+        android:background="@drawable/card_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mensagem"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_above="@+id/imageView18"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="18dp"
+            app:srcCompat="@drawable/perfilvazio" />
+
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="24dp"
+            android:layout_height="23dp"
+            android:layout_above="@+id/imageView20"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="18dp"
+            app:srcCompat="@drawable/email" />
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="23dp"
+            android:layout_height="21dp"
+            android:layout_above="@+id/imageView21"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="18dp"
+            app:srcCompat="@drawable/calendario" />
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="22dp"
+            android:layout_height="21dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="26.5dp"
+            android:layout_marginBottom="27dp"
+            app:srcCompat="@drawable/cracha2" />
+
+        <TextView
+            android:id="@+id/nomeCompleto"
+            android:layout_width="180dp"
+            android:layout_height="27dp"
+            android:layout_above="@+id/email"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="63dp"
+            android:layout_marginBottom="14dp"
+            android:layout_toEndOf="@+id/imageView18"
+            android:fontFamily="@font/monda"
+            android:text="XXXX XXXXX XXX"
+            android:textColor="#5F6570"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="251dp"
+            android:layout_height="27dp"
+            android:layout_above="@+id/dataContratacao"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="13dp"
+            android:layout_toEndOf="@+id/imageView16"
+            android:fontFamily="@font/monda"
+            android:text="xxxxxxxx@gmail.com"
+            android:textColor="#5F6570"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/dataContratacao"
+            android:layout_width="162dp"
+            android:layout_height="26dp"
+            android:layout_above="@+id/cpf"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="78dp"
+            android:layout_marginBottom="14dp"
+            android:layout_toEndOf="@+id/imageView20"
+            android:fontFamily="@font/monda"
+            android:text="12/12/2012"
+            android:textColor="#5F6570"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/cpf"
+            android:layout_width="180dp"
+            android:layout_height="27dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="25dp"
+            android:layout_toEndOf="@+id/imageView21"
+            android:fontFamily="@font/monda"
+            android:text="TextView"
+            android:textColor="#5F6570"
+            android:textSize="18dp" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sair"
+        android:layout_width="320dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/monda"
+        android:text="Sair"
+        android:textSize="18dp"
+        app:backgroundTint="@color/blue_scany"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spreadsheet"
+        app:layout_constraintVertical_bias="0.21" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,59 +22,55 @@
         android:textColor="#343565"
         android:textSize="20dp" />
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip9"
-        android:layout_width="293dp"
-        android:layout_height="68dp"
+    <LinearLayout
+        android:layout_width="261dp"
+        android:layout_height="62dp"
         android:layout_below="@+id/textView5"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="21dp"
-        android:backgroundTint="#F7F8FF"
-        app:chipCornerRadius="5dp"
-        app:chipStrokeColor="#EFF1FF"
-        app:chipStrokeWidth="2dp" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="26dp"
+        android:background="@drawable/card_solicitacoes"
+        android:clipToOutline="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginBottom="43dp"
-        app:srcCompat="@drawable/perfilcheio" />
+        <!-- Ícone -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/perfilcheio" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView8"
-        android:layout_alignTop="@+id/chip9"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="-3dp"
-        android:layout_toEndOf="@+id/imageView7"
-        android:fontFamily="@font/monda"
-        android:text="Maju"
-        android:textColor="#343565"
-        android:textSize="14sp" />
+        <!-- Texto do item -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/chip9"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="18dp"
-        android:layout_toEndOf="@+id/imageView7"
-        android:fontFamily="@font/raleway_light"
-        android:text="X acessos"
-        android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monda"
+                android:text="Maju"
+                android:textColor="#343565"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monda"
+                android:text="X acessos"
+                android:textColor="#5F6570"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
 
