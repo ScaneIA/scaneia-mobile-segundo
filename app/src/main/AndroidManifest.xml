@@ -2,9 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".ScaneIA"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:enableOnBackInvokedCallback="true"
@@ -15,6 +21,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Scaneia"
         tools:targetApi="tiramisu">
+        <activity
+            android:name=".ConfirmacaoDosDados"
+            android:exported="false" />
+        <activity
+            android:name=".Escaneamento"
+            android:exported="false" />
         <activity
             android:name=".PrimeiroAcesso"
             android:exported="false" />

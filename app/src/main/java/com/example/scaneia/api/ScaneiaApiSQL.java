@@ -5,6 +5,9 @@ import com.example.scaneia.model.LoginResponse;
 import com.example.scaneia.model.LogoutRequest;
 import com.example.scaneia.model.RefreshTokenRequestDTO;
 import com.example.scaneia.model.UsuarioPerfilResponse;
+
+import java.util.Map;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -18,10 +21,15 @@ public interface ScaneiaApiSQL {
     @POST("auth/logout")
     Call<Void> logout(@Body LogoutRequest request);
 
-    @GET("usuarios/filtro")
-    Call<UsuarioPerfilResponse> getUsuarioPerfil(@Header("Authorization") String authHeader);
+    @POST("usuarios/perfil")
+    Call<UsuarioPerfilResponse> getUsuarioPerfil();
 
     @POST("auth/role")
     Call<String> recuperarRoleUsuario(@Body RefreshTokenRequestDTO refreshTokenRequestDTO);
 
+    @POST("auth/refresh")
+    Call<LoginResponse> refresh(@Body RefreshTokenRequestDTO refreshTokenRequestDTO);
+
+    @POST("/vision/analyze")
+    Call<Map<String, Object>> analyzeImageByUrl(@Body Map<String, String> body);
 }

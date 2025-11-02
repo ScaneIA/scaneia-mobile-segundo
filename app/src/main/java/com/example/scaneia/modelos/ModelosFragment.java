@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.scaneia.Escaneamento;
 import com.example.scaneia.Perfil;
 import com.example.scaneia.R;
 import com.example.scaneia.databinding.FragmentModelosBinding;
@@ -36,6 +37,14 @@ public class ModelosFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Perfil.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Escaneamento.class);
                 startActivity(intent);
             }
         });
