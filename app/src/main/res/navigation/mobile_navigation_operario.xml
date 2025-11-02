@@ -17,4 +17,11 @@
         android:label="Solicitações"
         tools:layout="@layout/fragment_solicitacoes" />
 
+    <fragment
+        android:id="@+id/modelosFragment"
+        android:name="com.example.scaneia.modelos.ModelosFragment"
+        android:label="Modelos"
+        tools:layout="@layout/fragment_modelos" />
+
+
 </navigation>

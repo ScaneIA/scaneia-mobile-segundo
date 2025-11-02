@@ -1,30 +1,32 @@
 package com.example.scaneia;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import com.example.scaneia.api.ScaneiaApiSQL;
-import com.example.scaneia.api.RetrofitClient;
+
+import com.example.scaneia.api.ApiClient;
+import com.example.scaneia.api.ApiProxy;
 import com.example.scaneia.model.LoginRequest;
 import com.example.scaneia.model.LoginResponse;
+import com.example.scaneia.model.UserInfo;
+import com.example.scaneia.utils.JwtUtils;
 import com.google.android.material.textfield.TextInputEditText;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.io.IOException;
 
 public class Login extends AppCompatActivity {
 
     private TextInputEditText editEmail, editSenha;
     private Button btnEntrar;
+    private ApiProxy apiProxy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,25 +44,28 @@ public class Login extends AppCompatActivity {
         editSenha = findViewById(R.id.password);
         btnEntrar = findViewById(R.id.sair);
 
-        // Verifica se já existe token salvo
-        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-        String token = prefs.getString("refresh_token", null);
-        if (token != null) {
-            // já logado → vai direto pra HomeActivity
-            startActivity(new Intent(Login.this, SplashScrenn.class));
-            finish();
-            return;
+        apiProxy = new ApiProxy();
+
+        // Check saved token using TokenManager
+        String refreshToken = ApiClient.getRefreshToken();
+        if (refreshToken != null) {
+            UserInfo info = JwtUtils.decodeUserAndRole(refreshToken);
+            if (info != null && info.getUsuario_tipo() != null) {
+                startActivity(new Intent(Login.this, SplashScrenn.class));
+                finish();
+                return;
+            } else {
+                ApiClient.setTokens(null, null); // remove invalid tokens
+            }
         }
 
         btnEntrar.setOnClickListener(v -> fazerLogin());
 
-        //Cadastro
         TextView btnCadastrar = findViewById(R.id.cadastro);
-        btnCadastrar.setOnClickListener( v ->
+        btnCadastrar.setOnClickListener(v ->
                 startActivity(new Intent(Login.this, PrimeiroAcesso.class))
         );
     }
-
 
     private void fazerLogin() {
         String username = editEmail.getText().toString().trim();
@@ -71,38 +76,30 @@ public class Login extends AppCompatActivity {
             return;
         }
 
-        ScaneiaApiSQL scaneiaApi = RetrofitClient.getClientSQL().create(ScaneiaApiSQL.class);
-        LoginRequest request = new LoginRequest(username, password);
+        new Thread(() -> {
+            try {
+                LoginRequest request = new LoginRequest(username, password);
+                LoginResponse response = apiProxy.login(request);
 
-        Call<LoginResponse> call = scaneiaApi.login(request);
-        call.enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    String refreshToken = response.body().getRefreshToken();
-                    String accessToken = response.body().getAccessToken();
+                if (response != null) {
+                    ApiClient.setTokens(response.getAccessToken(), response.getRefreshToken());
 
-                    // salva token localmente
-                    SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-                    prefs.edit().putString("refresh_token", refreshToken).apply();
-                    prefs.edit().putString("access_token", accessToken).apply();
-
-                    Toast.makeText(Login.this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
-
-                    // vai pra tela principal
-                    startActivity(new Intent(Login.this, SplashScrenn.class));
-                    finish();
+                    runOnUiThread(() -> {
+                        Toast.makeText(Login.this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Login.this, SplashScrenn.class));
+                        finish();
+                    });
                 } else {
-                    Toast.makeText(Login.this, "Credenciais inválidas!", Toast.LENGTH_SHORT).show();
+                    runOnUiThread(() ->
+                            Toast.makeText(Login.this, "Credenciais inválidas!", Toast.LENGTH_SHORT).show()
+                    );
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
+                runOnUiThread(() ->
+                        Toast.makeText(Login.this, "Erro de conexão: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                );
             }
-
-            @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(Login.this, "Erro de conexão: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        }).start();
     }
-
-
 }

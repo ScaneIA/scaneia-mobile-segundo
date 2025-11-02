@@ -7,6 +7,11 @@
         android:title="Planilhas" />
 
     <item
+        android:id="@+id/modelosFragment"
+        android:icon="@android:color/transparent"
+        android:title="" />
+
+    <item
         android:id="@+id/solicitacoesFragment"
         android:icon="@drawable/sinocheio"
         android:title="Solicitações" />

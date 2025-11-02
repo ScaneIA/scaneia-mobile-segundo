@@ -23,6 +23,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.scaneia.databinding.ActivityAdminBinding;
 import com.example.scaneia.databinding.ActivityDiretorBinding;
 import com.example.scaneia.databinding.ActivityOperarioBinding;
+import com.example.scaneia.model.UserInfo;
 import com.example.scaneia.utils.JwtUtils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -84,22 +85,22 @@ public class SplashScrenn extends AppCompatActivity {
         }, 2300);
 
     }
-    void abrirTela(){
 
+    void abrirTela() {
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         String accessToken = prefs.getString("access_token", null);
 
         if (accessToken != null) {
-            String[] info = JwtUtils.decodeUserAndRole(accessToken);
+            UserInfo info = JwtUtils.decodeUserAndRole(accessToken);
 
-            if (info != null && info.length == 2) {
-                String username = info[0];
-                String role = info[1];
+            if (info != null && info.getUsuario_tipo() != null) {
+                String username = info.getUsername();
+                String role = info.getUsuario_tipo();
 
                 Log.d("LOGIN", "Usuário: " + username + " | Tipo: " + role);
 
                 switch (role) {
-                    case "OPERARIO": {
+                    case "COLABORADOR": {
                         ActivityOperarioBinding binding = ActivityOperarioBinding.inflate(getLayoutInflater());
                         setContentView(binding.getRoot());
                         BottomNavigationView navView = findViewById(R.id.nav_view_operario);
@@ -108,6 +109,10 @@ public class SplashScrenn extends AppCompatActivity {
                                 .build();
                         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_operario);
                         NavigationUI.setupWithNavController(binding.navViewOperario, navController);
+
+                        binding.fabNewScreen.setOnClickListener(v -> {
+                            binding.navViewOperario.setSelectedItemId(R.id.modelosFragment);
+                        });
                         break;
                     }
                     case "DIRETOR": {
@@ -133,16 +138,18 @@ public class SplashScrenn extends AppCompatActivity {
                         break;
                     }
                     default:
-                        Toast.makeText(this, "Usuário não identificado", Toast.LENGTH_SHORT).show();
-                        Intent rota = new Intent(this, MainActivity.class);
-                        startActivity(rota);
-                        break;
+                        Log.w("LOGIN", "Unknown user role: " + role);
                 }
+            } else {
+                startActivity(new Intent(this, Login.class));
+                finish();
+                Log.w("LOGIN", "Invalid token or missing user info");
             }
+        } else {
+            startActivity(new Intent(this, Login.class));
+            finish();
+            Log.d("LOGIN", "No access token found");
         }
-
-
-
     }
 
 
