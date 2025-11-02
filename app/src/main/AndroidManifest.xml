@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Scaneia"
         tools:targetApi="tiramisu">
+        <activity
+            android:name=".NoticiaWebViewActivity"
+            android:exported="false" />
         <activity
             android:name=".PrimeiroAcesso"
             android:exported="false" />

@@ -23,6 +23,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.scaneia.databinding.ActivityAdminBinding;
 import com.example.scaneia.databinding.ActivityDiretorBinding;
 import com.example.scaneia.databinding.ActivityOperarioBinding;
+import com.example.scaneia.utils.DialogsUtils;
 import com.example.scaneia.utils.JwtUtils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -93,13 +94,10 @@ public class SplashScrenn extends AppCompatActivity {
             String[] info = JwtUtils.decodeUserAndRole(accessToken);
 
             if (info != null && info.length == 2) {
-                String username = info[0];
                 String role = info[1];
 
-                Log.d("LOGIN", "Usuário: " + username + " | Tipo: " + role);
-
                 switch (role) {
-                    case "OPERARIO": {
+                    case "COLABORADOR": {
                         ActivityOperarioBinding binding = ActivityOperarioBinding.inflate(getLayoutInflater());
                         setContentView(binding.getRoot());
                         BottomNavigationView navView = findViewById(R.id.nav_view_operario);
@@ -133,7 +131,7 @@ public class SplashScrenn extends AppCompatActivity {
                         break;
                     }
                     default:
-                        Toast.makeText(this, "Usuário não identificado", Toast.LENGTH_SHORT).show();
+                        DialogsUtils.mostrarToast(this, "Usuário não identificado", false);
                         Intent rota = new Intent(this, MainActivity.class);
                         startActivity(rota);
                         break;

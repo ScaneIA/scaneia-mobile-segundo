@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -15,6 +14,7 @@ import com.example.scaneia.api.ScaneiaApiSQL;
 import com.example.scaneia.api.RetrofitClient;
 import com.example.scaneia.model.LoginRequest;
 import com.example.scaneia.model.LoginResponse;
+import com.example.scaneia.utils.DialogsUtils;
 import com.google.android.material.textfield.TextInputEditText;
 
 import retrofit2.Call;
@@ -60,14 +60,12 @@ public class Login extends AppCompatActivity {
                 startActivity(new Intent(Login.this, PrimeiroAcesso.class))
         );
     }
-
-
     private void fazerLogin() {
         String username = editEmail.getText().toString().trim();
         String password = editSenha.getText().toString().trim();
 
         if (username.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
+            DialogsUtils.mostrarToast(Login.this, "Preencha todos os campos", false);
             return;
         }
 
@@ -86,20 +84,19 @@ public class Login extends AppCompatActivity {
                     SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
                     prefs.edit().putString("refresh_token", refreshToken).apply();
                     prefs.edit().putString("access_token", accessToken).apply();
-
-                    Toast.makeText(Login.this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                    DialogsUtils.mostrarToast(Login.this, "Login realizado com sucesso", true);
 
                     // vai pra tela principal
                     startActivity(new Intent(Login.this, SplashScrenn.class));
                     finish();
                 } else {
-                    Toast.makeText(Login.this, "Credenciais inválidas!", Toast.LENGTH_SHORT).show();
+                    DialogsUtils.mostrarToast(Login.this, "Credenciais inválidas", false);
                 }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(Login.this, "Erro de conexão: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                DialogsUtils.mostrarToast(Login.this, "Erro de conexão: " + t.getMessage(), false);
             }
         });
     }

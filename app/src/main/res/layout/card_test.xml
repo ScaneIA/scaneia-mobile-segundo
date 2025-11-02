@@ -1,0 +1,59 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="15dp"
+    android:padding="8dp">
+
+    <!-- Texto de dias -->
+    <TextView
+        android:id="@+id/dataColeta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/monda"
+        android:text="há 10 dias"
+        android:textColor="#5F6570"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Card de solicitação -->
+    <LinearLayout
+        android:id="@+id/fundo"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/card_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/link"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"/>
+<!--            app:shapeAppearanceCornerMedium	="16dp"-->
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#D6DAFF"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/monda"
+            android:lineSpacingExtra="2dp"
+            android:padding="8dp"
+            android:text="UNITAU lança dois novos cursos de Engenharia: Produção e de Controle e Automação"
+            android:textColor="#5F6570"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>

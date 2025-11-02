@@ -2,7 +2,6 @@ package com.example.scaneia;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import androidx.activity.EdgeToEdge;
@@ -13,12 +12,12 @@ import androidx.core.view.WindowInsetsCompat;
 import android.content.SharedPreferences;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.example.scaneia.api.RetrofitClient;
 import com.example.scaneia.api.ScaneiaApiSQL;
 import com.example.scaneia.model.LogoutRequest;
 import com.example.scaneia.model.UsuarioPerfilResponse;
 import com.example.scaneia.planilhas.PlanilhaFragment;
+import com.example.scaneia.utils.DialogsUtils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import retrofit2.Call;
@@ -59,27 +58,21 @@ public class Perfil extends AppCompatActivity {
                         ((TextView) findViewById(R.id.dataContratacao)).setText(sdf.format(tdataContratacao));
                         ((TextView) findViewById(R.id.cpf)).setText(tcpf);
                         ((TextView) findViewById(R.id.mensagem)).setText("Olá, " + tnome);
-
-                    } else {
-                        Toast.makeText(Perfil.this, "Erro no carregamento dos dados", Toast.LENGTH_SHORT).show();
-                        try {
-                            String errorBody = response.errorBody().string();
-                            Log.e("PERFIL_ERROR", errorBody);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                    }
+                    else {
+                        DialogsUtils.mostrarToast(Perfil.this, "Erro no carregamento dos dados", false);
                     }
                 }
 
                 @Override
                 public void onFailure(Call<UsuarioPerfilResponse> call, Throwable t) {
-                    Toast.makeText(Perfil.this, "Erro de conexão: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    DialogsUtils.mostrarToast(Perfil.this, "Erro de conexão: " + t.getMessage(), false);
                 }
             });
 
         }
         else {
-            Toast.makeText(Perfil.this, "Eitaa, seu tempo deuu!!", Toast.LENGTH_SHORT).show();
+            DialogsUtils.mostrarToast(Perfil.this, "Reestabelecendo conexão...", false);
         }
 
         ImageView voltar = findViewById(R.id.voltar);
@@ -95,17 +88,15 @@ public class Perfil extends AppCompatActivity {
         sair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Perfil.this, "Você clicou no button", Toast.LENGTH_SHORT).show();
 
                 if (refreshToken != null) {
-                    Toast.makeText(Perfil.this, "Logout realizado com sucesso!", Toast.LENGTH_SHORT).show();
                     LogoutRequest request = new LogoutRequest(refreshToken);
-
                     Call<Void> call = scaneiaApi.logout(request);
                     call.enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful()) {
+                                DialogsUtils.mostrarToast(Perfil.this, "Logout realizado com sucesso", true);
                                 //Limpa tudo do SharedPreferences
                                 prefs.edit().clear().apply();
 
@@ -113,21 +104,21 @@ public class Perfil extends AppCompatActivity {
                                 Intent loginIntent = new Intent(Perfil.this, Login.class);
                                 loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(loginIntent);
-
-                                Toast.makeText(Perfil.this, "Logout realizado com sucesso!", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(Perfil.this, "Erro ao sair: " + response.code(), Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                DialogsUtils.mostrarToast(Perfil.this, "Falha ao sair do aplicativo", false);
                             }
                         }
 
                         @Override
                         public void onFailure(Call<Void> call, Throwable t) {
-                            Toast.makeText(Perfil.this, "Falha na conexão: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                            DialogsUtils.mostrarToast(Perfil.this, "Erro de conexão: " + t.getMessage(), false);
                         }
                     });
-                } else {
+                }
+                else {
                     // Se não tiver refresh token salvo, só volta pro login
-                    Toast.makeText(Perfil.this, "erro", Toast.LENGTH_SHORT).show();
+                    DialogsUtils.mostrarToast(Perfil.this, "Reestabelecendo conexão...", false);
                     Intent loginIntent = new Intent(Perfil.this, Login.class);
                     loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(loginIntent);
