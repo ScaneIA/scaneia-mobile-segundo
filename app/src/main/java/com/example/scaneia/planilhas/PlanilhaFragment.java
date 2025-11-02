@@ -13,7 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.scaneia.Perfil;
 import com.example.scaneia.R;
 
+import com.example.scaneia.api.ApiClient;
+import com.example.scaneia.api.ScaneiaApiMongo;
 import com.example.scaneia.databinding.FragmentPlanilhaBinding;
+import com.example.scaneia.model.FiltroInformacoesModelos;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class PlanilhaFragment extends Fragment {
@@ -28,27 +37,27 @@ public class PlanilhaFragment extends Fragment {
         RecyclerView recyclerView = binding.rv;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-//        // Cria a interface da API
-//        ScaneiaApiMongo scaneiaApi = RetrofitClient.getClientMongo().create(ScaneiaApiMongo.class);
-//
-//        // Faz a requisição
-//        scaneiaApi.getFiltroInformacoesModelos().enqueue(new Callback<List<FiltroInformacoesModelos>>() {
-//            @Override
-//            public void onResponse(Call<List<FiltroInformacoesModelos>> call, Response<List<FiltroInformacoesModelos>> response) {
-//                if (response.isSuccessful() && response.body() != null) {
-//                    List<FiltroInformacoesModelos> modelos = response.body();
-//
-//                    // Preenche o adapter com os dados reais
-//                    AdapterPlanilha adapter = new AdapterPlanilha(modelos);
-//                    recyclerView.setAdapter(adapter);
-//                }
-//            }
-//            @Override
-//            public void onFailure(Call<List<FiltroInformacoesModelos>> call, Throwable t) {
-//                System.out.println("eitaa, deu ruimm");
-//                t.printStackTrace();
-//            }
-//        });
+        // Cria a interface da API
+        ScaneiaApiMongo scaneiaApi = ApiClient.getClientMongo().create(ScaneiaApiMongo.class);
+
+        // Faz a requisição
+        scaneiaApi.getFiltroInformacoesModelos().enqueue(new Callback<List<FiltroInformacoesModelos>>() {
+            @Override
+            public void onResponse(Call<List<FiltroInformacoesModelos>> call, Response<List<FiltroInformacoesModelos>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<FiltroInformacoesModelos> modelos = response.body();
+
+                    // Preenche o adapter com os dados reais
+                    AdapterPlanilha adapter = new AdapterPlanilha(modelos);
+                    recyclerView.setAdapter(adapter);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<FiltroInformacoesModelos>> call, Throwable t) {
+                System.out.println("eitaa, deu ruimm");
+                t.printStackTrace();
+            }
+        });
 
 
         ImageView profile = root.findViewById(R.id.profile);

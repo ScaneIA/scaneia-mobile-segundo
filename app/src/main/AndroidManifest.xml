@@ -8,6 +8,7 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".ScaneIA"
@@ -21,6 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Scaneia"
         tools:targetApi="tiramisu">
+        <activity
+            android:name=".NoticiaWebViewActivity"
+            android:exported="false" />
         <activity
             android:name=".ConfirmacaoDosDados"
             android:exported="false" />
