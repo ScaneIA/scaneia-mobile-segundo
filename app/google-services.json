@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "295298949857",
+    "firebase_url": "https://scaneia-firebase-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "scaneia-firebase",
+    "storage_bucket": "scaneia-firebase.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295298949857:android:6b5461e64053e4ab1a8da0",
+        "android_client_info": {
+          "package_name": "com.example.scaneia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxgwSJDrnVvCf7Ezcdivr9W2kP5Z5V7ro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

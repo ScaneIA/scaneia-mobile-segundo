@@ -1,0 +1,50 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="#EEF0FF">
+
+    <!-- Barra de fundo -->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/bottom_nav"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center"-->
+<!--        android:background="#EEF0FF">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_folder"-->
+<!--            android:tint="#3A46D0"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center" />-->
+
+<!--        <View-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1" />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_bell"-->
+<!--            android:tint="#3A46D0"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center" />-->
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash; Botão central "flutuante" &ndash;&gt;-->
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab_add"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:src="@drawable/ic_add"-->
+<!--        android:tint="@android:color/white"-->
+<!--        android:backgroundTint="#3A46D0"-->
+<!--        android:elevation="8dp" />-->
+</RelativeLayout>
