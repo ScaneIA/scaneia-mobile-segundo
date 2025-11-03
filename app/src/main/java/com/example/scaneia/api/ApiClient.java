@@ -1,18 +1,14 @@
 package com.example.scaneia.api;
 
 import android.content.Context;
-
 import com.example.scaneia.model.LoginResponse;
 import com.example.scaneia.model.RefreshTokenRequestDTO;
-
 import java.io.IOException;
-
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
 public class ApiClient {
 
     private static String accessToken;

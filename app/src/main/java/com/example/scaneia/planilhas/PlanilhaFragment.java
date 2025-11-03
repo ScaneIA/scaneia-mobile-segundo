@@ -12,22 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.scaneia.Perfil;
 import com.example.scaneia.R;
-
-import com.example.scaneia.api.ApiClient;
-import com.example.scaneia.api.ScaneiaApiMongo;
 import com.example.scaneia.databinding.FragmentPlanilhaBinding;
 import com.example.scaneia.model.FiltroInformacoesModelos;
-
+import com.example.scaneia.api.ApiProxy;
+import java.io.IOException;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-
 public class PlanilhaFragment extends Fragment {
-
     private FragmentPlanilhaBinding binding;
+    private ApiProxy apiProxy;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -37,39 +30,42 @@ public class PlanilhaFragment extends Fragment {
         RecyclerView recyclerView = binding.rv;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Cria a interface da API
-        ScaneiaApiMongo scaneiaApi = ApiClient.getClientMongo().create(ScaneiaApiMongo.class);
+        apiProxy = new ApiProxy();
 
-        // Faz a requisição
-        scaneiaApi.getFiltroInformacoesModelos().enqueue(new Callback<List<FiltroInformacoesModelos>>() {
-            @Override
-            public void onResponse(Call<List<FiltroInformacoesModelos>> call, Response<List<FiltroInformacoesModelos>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    List<FiltroInformacoesModelos> modelos = response.body();
-
-                    // Preenche o adapter com os dados reais
-                    AdapterPlanilha adapter = new AdapterPlanilha(modelos);
-                    recyclerView.setAdapter(adapter);
-                }
-            }
-            @Override
-            public void onFailure(Call<List<FiltroInformacoesModelos>> call, Throwable t) {
-                System.out.println("eitaa, deu ruimm");
-                t.printStackTrace();
-            }
-        });
-
+        // Carrega os dados usando ApiProxy
+        carregarModelos(recyclerView);
 
         ImageView profile = root.findViewById(R.id.profile);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Perfil.class);
-                startActivity(intent);
-            }
+        profile.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Perfil.class);
+            startActivity(intent);
         });
 
         return root;
+    }
+
+    private void carregarModelos(RecyclerView recyclerView) {
+        new Thread(() -> {
+            try {
+                List<FiltroInformacoesModelos> modelos = apiProxy.getFiltroInformacoesModelos();
+
+                if (modelos != null) {
+                    getActivity().runOnUiThread(() -> {
+                        AdapterPlanilha adapter = new AdapterPlanilha(modelos);
+                        recyclerView.setAdapter(adapter);
+                    });
+                } else {
+                    getActivity().runOnUiThread(() ->
+                            System.out.println("Erro: lista de modelos vazia")
+                    );
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                getActivity().runOnUiThread(() ->
+                        System.out.println("Erro ao carregar modelos: " + e.getMessage())
+                );
+            }
+        }).start();
     }
 
     @Override
