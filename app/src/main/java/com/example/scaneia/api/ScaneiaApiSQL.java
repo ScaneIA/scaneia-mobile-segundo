@@ -23,7 +23,7 @@ public interface ScaneiaApiSQL {
     @POST("auth/logout")
     Call<Void> logout(@Body LogoutRequest request);
 
-    @POST("usuarios/perfil")
+    @GET("usuarios/perfil")
     Call<UsuarioPerfilResponse> getUsuarioPerfil();
 
     @POST("auth/role")
