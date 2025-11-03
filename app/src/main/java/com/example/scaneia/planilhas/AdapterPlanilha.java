@@ -34,7 +34,7 @@ public class AdapterPlanilha extends RecyclerView.Adapter<AdapterPlanilha.ViewHo
         FiltroInformacoesModelos modelo = modelos.get(position);
 
         holder.textTitulo.setText(modelo.getTitulo());
-        holder.textSetor.setText(modelo.getEstrutura());
+        //holder.textSetor.setText(modelo.getEstrutura());
         holder.textQntRegistros.setText(String.valueOf(modelo.getNumeroRegistros()));
 
         if (modelo.getColunas() != null) {

@@ -2,15 +2,12 @@ package com.example.scaneia;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
-import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -20,7 +17,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 import com.example.scaneia.api.ApiClient;
 import com.example.scaneia.databinding.ActivityAdminBinding;
 import com.example.scaneia.databinding.ActivityDiretorBinding;
@@ -87,7 +83,6 @@ public class SplashScrenn extends AppCompatActivity {
         }, 2300);
 
     }
-
     void abrirTela() {
         String accessToken = ApiClient.getAccessToken();
         Log.i("AccessToken", accessToken);
@@ -128,7 +123,7 @@ public class SplashScrenn extends AppCompatActivity {
                         NavigationUI.setupWithNavController(binding.navViewDiretor, navController);
                         break;
                     }
-                    case 3: {
+                    case 2: {
                         ActivityAdminBinding binding = ActivityAdminBinding.inflate(getLayoutInflater());
                         setContentView(binding.getRoot());
                         BottomNavigationView navView = findViewById(R.id.nav_view_admin);
