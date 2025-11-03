@@ -20,6 +20,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import com.example.scaneia.api.ApiClient;
 import com.example.scaneia.databinding.ActivityAdminBinding;
 import com.example.scaneia.databinding.ActivityDiretorBinding;
 import com.example.scaneia.databinding.ActivityOperarioBinding;
@@ -87,8 +89,12 @@ public class SplashScrenn extends AppCompatActivity {
     }
 
     void abrirTela() {
+<<<<<<< HEAD
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         String accessToken = prefs.getString("access_token", null);
+=======
+        String accessToken = ApiClient.getAccessToken();
+>>>>>>> 72192e5ce296f659e3ccf5d33da56b840c80fc9d
 
         if (accessToken != null) {
             UserInfo info = JwtUtils.decodeUserAndRole(accessToken);
