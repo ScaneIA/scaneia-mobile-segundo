@@ -144,6 +144,11 @@ public class Escaneamento extends AppCompatActivity {
         Intent intent = new Intent(Escaneamento.this, ConfirmacaoDosDados.class);
         String json = new Gson().toJson(table);
         intent.putExtra("table_data", json);
+
+        Intent currentIntent = getIntent();
+        String modeloId = currentIntent.getStringExtra("modeloId");
+
+        intent.putExtra("modeloId", modeloId);
         startActivity(intent);
     }
 

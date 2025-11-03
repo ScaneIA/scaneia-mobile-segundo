@@ -3,16 +3,26 @@ package com.example.scaneia.model;
 import java.util.List;
 
 public class FiltroInformacoesModelos {
+    private String id;
     private String titulo;
     private Integer estrutura;
     private Integer numeroRegistros;
     private List<String> colunas;
 
-    public FiltroInformacoesModelos(String titulo, List<String> colunas, Integer numeroRegistros, Integer estrutura) {
+    public FiltroInformacoesModelos(String id, String titulo, List<String> colunas, Integer numeroRegistros, Integer estrutura) {
+        this.id = id;
         this.titulo = titulo;
         this.colunas = colunas;
         this.numeroRegistros = numeroRegistros;
         this.estrutura = estrutura;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitulo() {

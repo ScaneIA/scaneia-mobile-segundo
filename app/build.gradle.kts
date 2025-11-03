@@ -72,6 +72,7 @@ dependencies {
     implementation(libs.firebase.database)
 
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
+    implementation("com.airbnb.android:lottie:6.4.0")
 
     implementation("com.squareup.retrofit2:retrofit:3.0.0")
     implementation("com.squareup.retrofit2:converter-gson:3.0.0")

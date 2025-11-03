@@ -1,4 +1,7 @@
 package com.example.scaneia.model;
+
+import java.util.Date;
+
 public class NoticiaResponse {
     private String data_coleta;
     private String link;
@@ -13,6 +16,17 @@ public class NoticiaResponse {
     }
 
     private String linkOriginal;
+
+
+    private transient Date parsedDate;
+
+    public Date getParsedDate() {
+        return parsedDate;
+    }
+
+    public void setParsedDate(Date parsedDate) {
+        this.parsedDate = parsedDate;
+    }
 
     public NoticiaResponse() {
 

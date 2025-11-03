@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FAFCFF"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center_horizontal"
     tools:context=".MainActivity">
 
     <androidx.camera.view.PreviewView
@@ -25,6 +26,24 @@
 
     </androidx.camera.view.PreviewView>
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/previewView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="scanner.json"
+        app:lottie_loop="true" />
+
     <Button
         android:id="@+id/btnEdges"
         android:layout_width="0dp"
@@ -32,7 +51,8 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="36dp"
         android:layout_weight="1"
-        android:text="Edges"
+        android:backgroundTint="@color/buttonColor"
+        android:text="Escanear"
         app:layout_constraintEnd_toEndOf="@+id/previewView"
         app:layout_constraintTop_toTopOf="@+id/previewView" />
 

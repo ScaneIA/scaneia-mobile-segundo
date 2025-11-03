@@ -16,9 +16,13 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.scaneia.api.ApiProxy;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.List;
 
 public class ConfirmacaoDosDados extends AppCompatActivity {
 
@@ -31,6 +35,7 @@ public class ConfirmacaoDosDados extends AppCompatActivity {
         setContentView(R.layout.activity_confirmacao_dos_dados);
 
         String jsonTable = getIntent().getStringExtra("table_data");
+        String modeloId = getIntent().getStringExtra("modeloId");
         Log.i("WebViewPage", "Received table data: " + jsonTable);
 
         webView = findViewById(R.id.webView);
@@ -53,6 +58,31 @@ public class ConfirmacaoDosDados extends AppCompatActivity {
             String js = "window.receiveData('" + escapedJson + "')";
             webView.evaluateJavascript(js, null);
         }, 1500);
+
+        Button confirmButton = findViewById(R.id.confirm);
+        confirmButton.setOnClickListener(v -> {
+            try {
+                List<List<String>> tableData = new com.google.gson.Gson().fromJson(jsonTable, List.class);
+
+                new Thread(() -> {
+                    try {
+                        ApiProxy proxy = new ApiProxy();
+                        proxy.createEscaneamento(modeloId, tableData);
+                        runOnUiThread(() -> {
+                            android.widget.Toast.makeText(this, "Escaneamento criado com sucesso!", android.widget.Toast.LENGTH_SHORT).show();
+                        });
+                    } catch (IOException e) {
+                        Log.e("ConfirmacaoDosDados", "Erro ao enviar escaneamento", e);
+                        runOnUiThread(() -> {
+                            android.widget.Toast.makeText(this, "Erro ao criar escaneamento", android.widget.Toast.LENGTH_SHORT).show();
+                        });
+                    }
+                }).start();
+            } catch (Exception e) {
+                Log.e("ConfirmacaoDosDados", "Erro ao processar dados", e);
+            }
+        });
+
     }
 
     private void openEditDrawer(String cellDataJson) {

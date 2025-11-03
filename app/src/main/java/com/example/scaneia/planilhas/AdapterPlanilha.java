@@ -42,6 +42,7 @@ public class AdapterPlanilha extends RecyclerView.Adapter<AdapterPlanilha.ViewHo
         apiProxy = new ApiProxy();
 
         holder.textTitulo.setText(modelo.getTitulo());
+//        holder.textSetor.setText(modelo.getEstrutura());
         holder.textQntRegistros.setText(String.valueOf(modelo.getNumeroRegistros()));
         System.out.println(modelo.getEstrutura());
         System.out.println(modelo.getTitulo());
@@ -53,13 +54,9 @@ public class AdapterPlanilha extends RecyclerView.Adapter<AdapterPlanilha.ViewHo
             holder.colunas.removeAllViews();
 
             for (String coluna : modelo.getColunas()) {
-                Chip chip = new Chip(
-                        new ContextThemeWrapper(holder.colunas.getContext(), R.style.DefaultChipStyle),
-                        null,
-                        0
-                );
+                Chip chip = (Chip) LayoutInflater.from(holder.colunas.getContext())
+                        .inflate(R.layout.item_chip, holder.colunas, false);
                 chip.setText(coluna);
-                chip.setClickable(false);
                 holder.colunas.addView(chip);
             }
         }

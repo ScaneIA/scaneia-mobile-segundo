@@ -107,4 +107,35 @@ public class ApiProxy {
         Response<Void> response = call.execute();
         return response.code();
     }
+
+    public void createEscaneamento(String idModelo, List<List<String>> tableData) throws IOException {
+        if (tableData == null || tableData.isEmpty()) {
+            Log.e("ApiProxy", "Table data is empty!");
+            return;
+        }
+
+        List<String> headers = tableData.get(0);
+        List<Map<String, Object>> registros = new java.util.ArrayList<>();
+
+        // Each subsequent row = data
+        for (int i = 1; i < tableData.size(); i++) {
+            List<String> row = tableData.get(i);
+            Map<String, Object> registro = new java.util.HashMap<>();
+
+            for (int j = 0; j < headers.size() && j < row.size(); j++) {
+                registro.put(headers.get(j), row.get(j));
+            }
+
+            registros.add(registro);
+        }
+
+        Map<String, Object> body = new java.util.HashMap<>();
+        body.put("idModelo", idModelo);
+        body.put("registros", registros);
+
+        Call<Void> call = mongoService.postEscaneamento(body);
+        executeWithTokenRefresh(call);
+
+        Log.i("ApiProxy", "✅ Escaneamento enviado com sucesso.");
+    }
 }

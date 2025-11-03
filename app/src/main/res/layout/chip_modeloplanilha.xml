@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@drawable/chip_modeloplanilha"
+        android:background="@drawable/chip_modeloplanilha_selector"
         android:gravity="center_vertical"
         android:padding="12dp">
 
