@@ -41,8 +41,8 @@ public class JwtUtils {
 
             String payloadJson = new String(Base64.decode(parts[1], Base64.URL_SAFE));
             JSONObject payload = new JSONObject(payloadJson);
-            long exp = payload.getLong("exp"); // seconds since epoch
-            long now = System.currentTimeMillis() / 1000; // current time in seconds
+            long exp = payload.getLong("exp");
+            long now = System.currentTimeMillis() / 1000;
 
             return exp <= now;
         } catch (Exception e) {

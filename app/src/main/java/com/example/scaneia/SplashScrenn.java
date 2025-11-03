@@ -90,18 +90,19 @@ public class SplashScrenn extends AppCompatActivity {
 
     void abrirTela() {
         String accessToken = ApiClient.getAccessToken();
+        Log.i("AccessToken", accessToken);
 
         if (accessToken != null) {
             UserInfo info = JwtUtils.decodeUserAndRole(accessToken);
 
-            if (info != null && info.getUsuario_tipo() != null) {
+            if (info != null ) {
                 String username = info.getUsername();
-                String role = info.getUsuario_tipo();
+                int role = info.getIdTipoUsuario();
 
                 Log.d("LOGIN", "Usuário: " + username + " | Tipo: " + role);
 
                 switch (role) {
-                    case "COLABORADOR": {
+                    case 4: {
                         ActivityOperarioBinding binding = ActivityOperarioBinding.inflate(getLayoutInflater());
                         setContentView(binding.getRoot());
                         BottomNavigationView navView = findViewById(R.id.nav_view_operario);
@@ -116,7 +117,7 @@ public class SplashScrenn extends AppCompatActivity {
                         });
                         break;
                     }
-                    case "DIRETOR": {
+                    case 1: {
                         ActivityDiretorBinding binding = ActivityDiretorBinding.inflate(getLayoutInflater());
                         setContentView(binding.getRoot());
                         BottomNavigationView navView = findViewById(R.id.nav_view_diretor);
@@ -127,7 +128,7 @@ public class SplashScrenn extends AppCompatActivity {
                         NavigationUI.setupWithNavController(binding.navViewDiretor, navController);
                         break;
                     }
-                    case "ADMIN": {
+                    case 3: {
                         ActivityAdminBinding binding = ActivityAdminBinding.inflate(getLayoutInflater());
                         setContentView(binding.getRoot());
                         BottomNavigationView navView = findViewById(R.id.nav_view_admin);

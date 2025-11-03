@@ -50,7 +50,7 @@ public class Login extends AppCompatActivity {
         String refreshToken = ApiClient.getRefreshToken();
         if (refreshToken != null) {
             UserInfo info = JwtUtils.decodeUserAndRole(refreshToken);
-            if (info != null && info.getUsuario_tipo() != null) {
+            if (info != null) {
                 startActivity(new Intent(Login.this, SplashScrenn.class));
                 finish();
                 return;
