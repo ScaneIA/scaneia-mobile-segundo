@@ -71,11 +71,6 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.6")
     implementation(libs.firebase.database)
 
-    var camerax_version = "1.3.0"
-    implementation("androidx.camera:camera-core:${camerax_version}")
-    implementation("androidx.camera:camera-camera2:${camerax_version}")
-    implementation("androidx.camera:camera-lifecycle:${camerax_version}")
-    implementation("androidx.camera:camera-view:1.3.0")
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
 
     implementation("com.squareup.retrofit2:retrofit:3.0.0")

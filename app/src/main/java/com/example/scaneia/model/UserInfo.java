@@ -3,12 +3,12 @@ package com.example.scaneia.model;
 public class UserInfo {
     private int id;
     private String username;
-    private String usuario_tipo;
+    private int id_tipo_usuario;
 
-    public UserInfo(int id, String username, String usuario_tipo) {
+    public UserInfo(int id, String username, int id_tipo_usuario) {
         this.id = id;
         this.username = username;
-        this.usuario_tipo = usuario_tipo;
+        this.id_tipo_usuario = id_tipo_usuario;
     }
 
     public int getId() {
@@ -19,7 +19,7 @@ public class UserInfo {
         return username;
     }
 
-    public String getUsuario_tipo() {
-        return usuario_tipo;
+    public int getIdTipoUsuario() {
+        return id_tipo_usuario;
     }
 }

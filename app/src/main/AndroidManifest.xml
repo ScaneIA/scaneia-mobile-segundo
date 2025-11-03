@@ -23,12 +23,9 @@
         android:theme="@style/Theme.Scaneia"
         tools:targetApi="tiramisu">
         <activity
-<<<<<<< HEAD
-=======
             android:name=".NoticiaWebViewActivity"
             android:exported="false" />
         <activity
->>>>>>> 72192e5ce296f659e3ccf5d33da56b840c80fc9d
             android:name=".ConfirmacaoDosDados"
             android:exported="false" />
         <activity
