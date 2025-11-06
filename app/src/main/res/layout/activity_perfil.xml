@@ -13,8 +13,8 @@
         android:id="@+id/imageView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-70dp"
-        android:src="@drawable/quadradinho2"
+        android:layout_marginTop="-100dp"
+        android:src="@drawable/quadradinhoteste"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,12 +45,13 @@
         android:id="@+id/mensagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="198dp"
         android:fontFamily="@font/raleway_light"
         android:text="Olá, Usuário"
         android:textColor="#4B6992"
         android:textSize="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView15" />
 

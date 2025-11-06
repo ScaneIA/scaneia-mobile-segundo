@@ -40,7 +40,6 @@ public class PlanilhaFragment extends Fragment {
             Intent intent = new Intent(getActivity(), Perfil.class);
             startActivity(intent);
         });
-
         return root;
     }
 

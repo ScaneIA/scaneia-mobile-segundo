@@ -3,7 +3,7 @@
     <style name="Theme.App.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
     </style>
 
-    <style name="DefaultChipStyle">
+    <style name="DefaultChipStyle" parent="Widget.MaterialComponents.Chip.Entry">
         <item name="chipCornerRadius">4dp</item>
         <item name="chipStrokeColor">#EFF1FF</item>
         <item name="chipStrokeWidth">2dp</item>
@@ -15,5 +15,4 @@
         <item name="android:layout_height">48dp</item>
         <item name="android:layout_margin">0dp</item>
     </style>
-
 </resources>

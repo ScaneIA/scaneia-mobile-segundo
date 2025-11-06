@@ -38,49 +38,12 @@ public class SplashScrenn extends AppCompatActivity {
             return insets;
         });
 
-        ImageView quadradinhos = findViewById(R.id.quadradinhos);
-
-        //1
-//        ObjectAnimator anim = ObjectAnimator.ofFloat(quadradinhos, "translationY", 0f, -200f);
-//        anim.setDuration(3000);
-//        anim.setRepeatCount(ValueAnimator.INFINITE);
-//        anim.start();
-
-        //2
-        // Cria duas animações: uma de subida e outra de aparecimento
-//        ObjectAnimator subir = ObjectAnimator.ofFloat(quadradinhos, "translationY", 300f, 0f);
-//        ObjectAnimator aparecer = ObjectAnimator.ofFloat(quadradinhos, "alpha", 0f, 1f);
-//
-//        // Controla a duração e o tempo de início das animações
-//        subir.setDuration(2000);
-//        aparecer.setDuration(2000);
-//
-//        // Faz as duas animações rodarem ao mesmo tempo
-//        AnimatorSet animSet = new AnimatorSet();
-//        animSet.playTogether(subir, aparecer);
-//        animSet.start();
-
-        //3
-        float alturaTela = getResources().getDisplayMetrics().heightPixels;
-
-        ObjectAnimator subir = ObjectAnimator.ofFloat(quadradinhos, "translationY", 0f, -alturaTela);
-        ObjectAnimator aparecer = ObjectAnimator.ofFloat(quadradinhos, "alpha", 0f, 1f);
-
-        subir.setDuration(3000);
-        aparecer.setDuration(1000);
-
-        subir.setInterpolator(new DecelerateInterpolator());
-
-        AnimatorSet animSet = new AnimatorSet();
-        animSet.playTogether(subir, aparecer);
-        animSet.start();
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 abrirTela();
             }
-        }, 2300);
+        }, 1500);
 
     }
     void abrirTela() {
@@ -88,11 +51,11 @@ public class SplashScrenn extends AppCompatActivity {
         Log.i("AccessToken", accessToken);
 
         if (accessToken != null) {
-            UserInfo info = JwtUtils.decodeUserAndRole(accessToken);
+            UserInfo userinfo = JwtUtils.decodeUserAndRole(accessToken);
 
-            if (info != null ) {
-                String username = info.getUsername();
-                int role = info.getIdTipoUsuario();
+            if (userinfo != null ) {
+                String username = userinfo.getUsername();
+                int role = userinfo.getIdTipoUsuario();
 
                 Log.d("LOGIN", "Usuário: " + username + " | Tipo: " + role);
 

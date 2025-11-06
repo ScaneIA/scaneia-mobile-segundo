@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFCFF"
-    tools:context=".funcionarios.FuncionariosFragment">
+    android:background="#FAFCFF">
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-70dp"
-        android:src="@drawable/quadradinho2"
+        android:layout_marginTop="-100dp"
+        android:src="@drawable/quadradinhoteste"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,7 +20,7 @@
         android:id="@+id/profile"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="-13dp"
         android:layout_marginEnd="38dp"
         android:src="@drawable/perfil"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,24 +31,86 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="-10dp"
         android:fontFamily="@font/monda"
         android:text="@string/acessos"
         android:textColor="#343565"
         android:textSize="28dp"
-        app:layout_constraintEnd_toStartOf="@+id/profile"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
-        android:layout_width="331dp"
-        android:layout_height="512dp"
-        android:layout_marginTop="30dp"
+    <RelativeLayout
+        android:layout_width="335dp"
+        android:layout_height="460dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/card_funcionario_2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.612"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        tools:listitem="@layout/card_funcionarios" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="299dp"
+            android:layout_height="440dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="26dp"
+            tools:listitem="@layout/card_funcionarios" />
+
+        <ImageView
+            android:id="@+id/imgSemFuncionarios"
+            android:layout_width="150dp"
+            android:layout_height="138dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="151dp"
+            android:layout_marginEnd="94dp"
+            android:layout_marginBottom="151dp"
+            android:src="@drawable/pastavazia" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="131dp"
+        android:fontFamily="@font/monda"
+        android:text="Confira abaixo sua equipe"
+        android:textColor="#343565"
+        android:textSize="20dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mensagemColaborador" />
+
+    <TextView
+        android:id="@+id/mensagemColaborador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="213dp"
+        android:fontFamily="@font/monda"
+        android:text="Olá, Colaborador"
+        android:textColor="#343565"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

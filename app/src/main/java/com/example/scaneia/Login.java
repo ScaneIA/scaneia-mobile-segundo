@@ -17,6 +17,7 @@ import com.example.scaneia.api.ApiProxy;
 import com.example.scaneia.model.LoginRequest;
 import com.example.scaneia.model.LoginResponse;
 import com.example.scaneia.model.UserInfo;
+import com.example.scaneia.utils.DialogsUtils;
 import com.example.scaneia.utils.JwtUtils;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -72,6 +73,7 @@ public class Login extends AppCompatActivity {
         String password = editSenha.getText().toString().trim();
 
         if (username.isEmpty() || password.isEmpty()) {
+           // DialogsUtils.mostrarToast(this, "");
             Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
             return;
         }

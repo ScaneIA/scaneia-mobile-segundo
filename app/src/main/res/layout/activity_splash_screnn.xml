@@ -5,28 +5,5 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScrenn"
-    android:background="#FAFCFF">
-
-<!--    <ImageView-->
-<!--        android:id="@+id/quadradinhos"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        android:translationY="0dp"-->
-<!--        app:srcCompat="@drawable/fundo_splashscreen"-->
-<!--        tools:layout_editor_absoluteX="0dp"-->
-<!--        tools:layout_editor_absoluteY="130dp" />-->
-
-    <ImageView
-        android:id="@+id/quadradinhos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:translationY="500dp"
-        android:alpha="0"
-        app:srcCompat="@drawable/fundo_splashscreen"
-        android:scaleType="centerCrop" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:background="@color/blue_scany"
+    tools:context=".SplashScrenn"/>

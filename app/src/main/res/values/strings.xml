@@ -12,4 +12,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="solicitacoes"><b>Solicitações</b></string>
+    <string name="colaboradores"><b>Colaboradores</b></string>
 </resources>

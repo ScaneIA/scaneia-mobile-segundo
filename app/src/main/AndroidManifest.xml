@@ -23,6 +23,9 @@
         android:theme="@style/Theme.Scaneia"
         tools:targetApi="tiramisu">
         <activity
+            android:name=".Colaborador"
+            android:exported="false" />
+        <activity
             android:name=".NoticiaWebViewActivity"
             android:exported="false" />
         <activity

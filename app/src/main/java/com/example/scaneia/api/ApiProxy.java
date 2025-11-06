@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
+import retrofit2.Response;
 
 public class ApiProxy {
 
@@ -89,5 +90,21 @@ public class ApiProxy {
         Map<String, String> body = Map.of("imageUrl", imageUrl);
         Call<Map<String, Object>> call = sqlService.analyzeImageByUrl(body);
         return executeWithTokenRefresh(call);
+    }
+
+    public List<UsuarioHierarquia> getUsuarioHierarquia(int id) throws IOException {
+        Call<List<UsuarioHierarquia>> call = sqlService.getUsuarioHierarquia(id);
+        return executeWithTokenRefresh(call);
+    }
+
+    public EstruturaResponse getEstruturaById(int id) throws IOException {
+        Call<EstruturaResponse> call = sqlService.getEstruturaById(id);
+        return executeWithTokenRefresh(call);
+    }
+
+    public int cadastrarUsuario(CadastroRequest request) throws IOException {
+        Call<Void> call = sqlService.cadastrarUsuario(request);
+        Response<Void> response = call.execute();
+        return response.code();
     }
 }
